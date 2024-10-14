@@ -1,0 +1,16 @@
+{
+  "name": "game-2048",
+  "version": "1.0.0",
+  "description": "This repository contains a JavaScript implementation of the classic 2048 puzzle game. The game board is a 4x4 grid where players combine numbered tiles by moving them in one of four directions: left, right, up, or down. When two tiles of the same number collide, they merge into one tile with the sum of their values. The goal of the game is to create a tile with the value of 2048.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "live-server": "^1.2.2",
+    "sass": "^1.79.5"
+  }
+}
