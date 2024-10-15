@@ -1,3 +1,5 @@
+'use strict'
+
 import Game from "./Game.js";
 
 const game = new Game();
@@ -12,18 +14,28 @@ const element = {
   score: document.querySelector('.game-score'),
 };
 
+
 const displayBoard = () => {
   game.state.forEach((row, rowIndex) => {
     const cellIndexCoefficient = rowIndex * 4;
 
     row.forEach((cell, cellIndex) => {
       const cellElement = element.cells[cellIndex + cellIndexCoefficient];
-      const value = cell !== 0 ? cell : '';
-      const cellClassName =
-        cell === 0 ? 'field-cell' : `field-cell field-cell--${cell}`;
+      const value = cell.value !== 0 ? cell.value : '';
+      let cellClassName = 'field-cell';
+
+      //!!!!!!!!!!!!
+      if (cell.value !== 0) {
+        cellClassName += ` field-cell--${cell.value}`;
+      }
+
+      if (cell.merged) {
+        cellClassName += ` merged`;
+      }
 
       cellElement.textContent = value;
       cellElement.className = cellClassName;
+      cellElement.setAttribute('data', value / 2);
     });
   });
 
@@ -40,7 +52,11 @@ const displayBoard = () => {
   if (game.currentStatus === game.status.lose) {
     element.messageLose.classList.remove('hidden');
   }
+
+  game.goThroughCells(game.state, (cell) => cell.merged = false);
 };
+
+displayBoard()
 
 const updateStatus = () => {
   switch (game.getStatus()) {
@@ -90,6 +106,29 @@ document.addEventListener('keydown', (ev) => {
         game.moveLeft();
         break;
       case 'ArrowRight':
+        game.moveRight();
+        break;
+    }
+    updateStatus();
+    displayBoard();
+  }
+});
+
+document.addEventListener('click', (ev) => {
+  if (game.getStatus() === 'playing') {
+    const arrow = [...ev.target.classList].slice(2)[0];
+
+    switch (arrow) {
+      case 'up':
+        game.moveUp();
+        break;
+      case 'down':
+        game.moveDown();
+        break;
+      case 'left':
+        game.moveLeft();
+        break;
+      case 'right':
         game.moveRight();
         break;
     }

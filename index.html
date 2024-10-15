@@ -15,15 +15,18 @@
 </head>
 <body>
   <div class="container">
+    <h1>GAME - <span>2048</span></h1>
     <div class="game-header">
-      <h1>2048</h1>
+      <p>Your record:</p>
+      <div class="score-record">
+      </div>
       <div class="controls">
         <p class="info">
           Score:
           <span class="game-score">0</span>
         </p>
-        <button class="button start">Start</button>
-        <button class="button restart hidden">Restart</button>
+        <button class="button control start">Start</button>
+        <button class="button control restart hidden">Restart</button>
       </div>
     </div>
 
@@ -63,8 +66,18 @@
       <p class="message message-lose hidden">You lose! Restart the game?</p>
       <p class="message message-win hidden">Winner! Congrats! You did it!</p>
       <p class="message message-start">
-        Press "Start" to begin game. Good luck!
+        Press "Start" to begin game. <br> Good luck!
       </p>
+    </div>
+    <div class="arrows">
+      <div class="arrows-row">
+        <button class="button arrow up">Up</button>
+      </div>
+      <div class="arrows-row">
+        <button class="button arrow left">Left</button>
+        <button class="button arrow down">Down</button>
+        <button class="button arrow right">Right</button>
+      </div>
     </div>
   </div>
   <script

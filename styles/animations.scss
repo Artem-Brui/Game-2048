@@ -1,0 +1,36 @@
+@keyframes back {
+  0% {
+    transform: rotateZ(0);
+    background-size: 90%;
+  }
+
+  100% {
+    background-size: 90%;
+    transform: rotateZ(-2turn);
+  }
+}
+
+@keyframes cell {
+  0% {
+    font-size: .1rem;
+    color: transparent;
+    background-color: rgb(19, 182, 27);
+  }
+
+  100% {
+    color: transparent;
+    font-size: 3rem;
+    transform: rotateY(-2turn);
+    background-color: rgb(19, 182, 27);
+  }
+}
+
+@keyframes background-round {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

@@ -1,35 +1,77 @@
 export default class Game {
   constructor(
     initialState = [
-      [0, 0, 0, 0],
-      [0, 0, 0, 0],
-      [0, 0, 0, 0],
-      [0, 0, 0, 0],
-    ],
+      [
+        { value: 0, merged: false },
+        { value: 0, merged: false },
+        { value: 8, merged: false },
+        { value: 0, merged: false },
+      ],
+      [
+        { value: 0, merged: false },
+        { value: 0, merged: false },
+        { value: 0, merged: false },
+        { value: 4, merged: false },
+      ],
+      [
+        { value: 0, merged: false },
+        { value: 0, merged: false },
+        { value: 0, merged: false },
+        { value: 0, merged: false },
+      ],
+      [
+        { value: 0, merged: false },
+        { value: 0, merged: false },
+        { value: 0, merged: false },
+        { value: 0, merged: false },
+      ],
+    ]
+    // initialState = [
+    //   [0, 0, 0, 0],
+    //   [0, 0, 0, 0],
+    //   [0, 0, 0, 0],
+    //   [0, 0, 0, 0],
+    // ],
+    // initialState = [
+    //   [2, 4, 8, 16],
+    //   [32, 64, 128, 256],
+    //   [512, 1024, 2048, 0],
+    //   [0, 0, 0, 0],
+    // ],
   ) {
     this.directions = {
-      right: 'right',
-      left: 'left',
-      up: 'up',
-      down: 'down',
+      right: "right",
+      left: "left",
+      up: "up",
+      down: "down",
     };
 
     this.status = {
-      idle: 'idle',
-      playing: 'playing',
-      win: 'win',
-      lose: 'lose',
+      idle: "idle",
+      playing: "playing",
+      win: "win",
+      lose: "lose",
     };
-    this.initialState = initialState;
-    this.state = initialState;
+    this.copyBoard = (board) => {
+      const copy = JSON.stringify(board);
+      return JSON.parse(copy);
+    };
+
+    this.initialState = this.copyBoard(initialState);
+    this.state = this.copyBoard(initialState);
     this.currentStatus = this.status.idle;
     this.lastRandomZeroIndex = 0;
     this.score = 0;
 
-    this.copyBoard = (board) => board.map((row) => [...row]);
-
     this.goThroughCells = (board, callback) =>
-      board.map((row) => row.map((n) => callback(n)));
+      board.map((row) =>
+        row.map((n) => {
+          return {
+            ...n,
+            value: callback(n),
+          };
+        })
+      );
 
     this.getRandomZeroSerialNumber = (zeros) => {
       let randomNumber;
@@ -54,7 +96,7 @@ export default class Game {
     };
 
     this.getZerosAmount = (board) => {
-      return board.flat().filter((number) => number === 0).length;
+      return board.flat().filter((number) => number.value === 0).length;
     };
 
     this.addNumbersToBoard = (numbersAmount = 1) => {
@@ -69,11 +111,11 @@ export default class Game {
           let indexCounter = 0;
 
           updatedBoard = this.goThroughCells(board, (n) => {
-            if (n === 0) {
+            if (n.value === 0) {
               indexCounter++;
             }
 
-            return randomIndex === indexCounter && n === 0 ? numberToAdd : n;
+            return randomIndex === indexCounter && n.value === 0 ? numberToAdd : n.value;
           });
 
           return updatedBoard;
@@ -104,23 +146,32 @@ export default class Game {
 
       const movedArray = arrayToMove.map((row) => {
         const values = isRightDownDirection
-          ? row.filter((cell) => cell !== 0).reverse()
-          : row.filter((cell) => cell !== 0);
+          ? row.filter((cell) => cell.value !== 0).reverse()
+          : row.filter((cell) => cell.value !== 0);
 
         for (let i = 0; i < values.length; i++) {
-          if (values[i] === values[i + 1] && values[i] !== 0) {
-            values[i + 1] = 0;
-            values[i] *= 2;
+          if (
+            values[i + 1] !== undefined &&
+            values[i].value === values[i + 1].value &&
+            values[i].value !== 0
+          ) {
+            values[i + 1].value = 0;
+            values[i].value *= 2;
+            // attention!!!!!
+            values[i].merged = true;
 
-            this.score += values[i];
+            this.score += values[i].value;
           }
         }
 
         const mergedValues = isRightDownDirection
-          ? values.filter((cell) => cell !== 0).reverse()
-          : values.filter((cell) => cell !== 0);
+          ? values.filter((cell) => cell.value !== 0).reverse()
+          : values.filter((cell) => cell.value !== 0);
 
-        const zeros = new Array(4 - mergedValues.length).fill(0);
+        const zeros = new Array(4 - mergedValues.length).fill({
+          value: 0,
+          merged: false,
+        });
 
         return isRightDownDirection
           ? [...zeros, ...mergedValues]
@@ -138,7 +189,8 @@ export default class Game {
           let canVerticalMerge;
 
           if (rowIndex < this.state.length - 1) {
-            canVerticalMerge = cell === this.state[rowIndex + 1][cellIndex];
+            canVerticalMerge =
+              cell.value === this.state[rowIndex + 1][cellIndex].value;
           }
 
           if (canVerticalMerge) {
@@ -158,7 +210,7 @@ export default class Game {
           let canHorizontalMerge;
 
           if (cellIndex < row.length - 1) {
-            canHorizontalMerge = cell === row[cellIndex + 1];
+            canHorizontalMerge = cell.value === row[cellIndex + 1].value;
           }
 
           if (canHorizontalMerge) {
@@ -175,7 +227,7 @@ export default class Game {
 
       return currentBoard.every((row, rowIndex) => {
         return row.every((cell, cellIndex) => {
-          return cell === board[rowIndex][cellIndex];
+          return cell.value === board[rowIndex][cellIndex].value;
         });
       });
     };
@@ -185,7 +237,7 @@ export default class Game {
     const boardAfterMoving = this.moveValues(this.directions.left);
 
     const canMove =
-      this.currentStatus === 'playing' &&
+      this.currentStatus === "playing" &&
       !this.isEquelToState(boardAfterMoving);
 
     if (canMove) {
@@ -197,7 +249,7 @@ export default class Game {
     const boardAfterMoving = this.moveValues(this.directions.right);
 
     const canMove =
-      this.currentStatus === 'playing' &&
+      this.currentStatus === "playing" &&
       !this.isEquelToState(boardAfterMoving);
 
     if (canMove) {
@@ -210,7 +262,7 @@ export default class Game {
     const boardAfterMoving = this.moveValues(this.directions.up);
 
     const canMove =
-      this.currentStatus === 'playing' &&
+      this.currentStatus === "playing" &&
       !this.isEquelToState(boardAfterMoving);
 
     if (canMove) {
@@ -222,7 +274,7 @@ export default class Game {
     const boardAfterMoving = this.moveValues(this.directions.down);
 
     const canMove =
-      this.currentStatus === 'playing' &&
+      this.currentStatus === "playing" &&
       !this.isEquelToState(boardAfterMoving);
 
     if (canMove) {
@@ -247,7 +299,7 @@ export default class Game {
 
     this.state.forEach((row) => {
       row.forEach((cell) => {
-        if (cell === 2048) {
+        if (cell.value === 2048) {
           isWin = true;
         }
       });
@@ -265,12 +317,12 @@ export default class Game {
   }
 
   start() {
-    this.currentStatus = 'playing';
+    this.currentStatus = "playing";
     this.state = this.addNumbersToBoard(2);
   }
 
   restart() {
-    this.currentStatus = 'idle';
+    this.currentStatus = "idle";
     this.state = this.initialState;
     this.score = 0;
   }

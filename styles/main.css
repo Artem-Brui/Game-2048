@@ -1,21 +1,72 @@
+@charset "UTF-8";
+/* Линейка синих оттенков */
+/* Очень светлый голубой */
+/* Светло-голубой */
+/* Небесно-голубой */
+/* Нежно-голубой */
+/* Синий */
+/* Яркий синий (Dodger Blue) */
+/* Васильковый */
+/* Королевский синий */
+/* Средне-синий */
+/* Темно-синий */
+/* Флотский синий */
+/* Полуночный синий */
+@keyframes back {
+  0% {
+    transform: rotateZ(0);
+    background-size: 90%;
+  }
+  100% {
+    background-size: 90%;
+    transform: rotateZ(-2turn);
+  }
+}
+@keyframes cell {
+  0% {
+    font-size: 0.1rem;
+    color: transparent;
+    background-color: rgb(19, 182, 27);
+  }
+  100% {
+    color: transparent;
+    font-size: 3rem;
+    transform: rotateY(-2turn);
+    background-color: rgb(19, 182, 27);
+  }
+}
+@keyframes background-round {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+html {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background: #fbf8ef;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  overflow-y: hidden;
   font-family: sans-serif;
   font-size: 24px;
   font-weight: 900;
 }
 
 .field-cell {
-  background: #d6cdc4;
+  background: #87ceeb;
   width: 75px;
   height: 75px;
   border-radius: 5px;
-  color: #776e65;
+  color: #1e90ff;
   box-sizing: border-box;
   text-align: center;
   vertical-align: center;
@@ -65,7 +116,7 @@ body {
 }
 
 .game-field {
-  background: #bbada0;
+  background: #86b5ce;
   border-spacing: 10px;
   border-radius: 5px;
 }
@@ -80,11 +131,13 @@ body {
 }
 
 h1 {
-  background: #edc22e;
-  color: #f9f6f2;
-  width: 75px;
+  background: #87ceeb;
+  color: #1e90ff;
+  width: 100%;
   height: 75px;
-  font-size: 24px;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 5px;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -92,17 +145,21 @@ h1 {
   box-sizing: border-box;
   margin: 0;
 }
+h1 span {
+  letter-spacing: 12px;
+  margin-left: 12px;
+}
 
 .info {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #d6cdc4;
+  background: #87ceeb;
   width: 75px;
   height: 75px;
   border-radius: 5px;
-  color: #776e65;
+  color: #1e90ff;
   box-sizing: border-box;
   font-size: 16px;
   margin: 0 8px 0 0;
@@ -113,15 +170,22 @@ h1 {
 }
 
 .button {
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #f9f6f2;
-  font-family: sans-serif;
-  font-weight: 700;
-  font-size: 16px;
   width: 75px;
   height: 75px;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.7);
+}
+.button:active {
+  scale: 0.9;
+}
+
+.control {
+  color: #f9f6f2;
   transition: 0.25s ease background;
 }
 
@@ -140,15 +204,34 @@ h1 {
   background: #f87474;
 }
 
+.arrows {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  gap: 15px;
+  margin-top: 100px;
+}
+.arrows-row {
+  display: flex;
+  gap: 15px;
+}
+
+.arrow {
+  background: #87ceeb;
+}
+
 .message {
   box-sizing: border-box;
-  width: 100%;
-  background: #d6cdc4;
-  color: #776e65;
+  width: 350px;
+  background: #87ceeb;
+  color: #1e90ff;
   padding: 10px;
   text-align: center;
   border-radius: 5px;
   font-size: 20px;
+  position: absolute;
 }
 
 .hidden {
@@ -163,13 +246,35 @@ h1 {
 }
 
 .message-win {
-  background: #edc22e;
+  background: #1dae28;
   color: #f9f6f2;
+}
+
+.message-lose {
+  color: #bc452a;
 }
 
 .message-container {
   width: 100%;
-  height: 150px;
+}
+
+.merged {
+  position: relative;
+  animation: cell 1s;
+}
+.merged::before {
+  content: "";
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -18%;
+  left: -18%;
+  z-index: 2;
+  background-image: url("/images/star.png");
+  background-repeat: no-repeat;
+  background-size: 0%;
+  background-position: center;
+  animation: back 1s;
 }
 
 /*# sourceMappingURL=main.css.map */
