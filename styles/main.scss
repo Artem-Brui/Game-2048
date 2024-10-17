@@ -239,13 +239,21 @@ h1 {
 .message {
   box-sizing: border-box;
   width: 350px;
-  background: $secondary;
-  color: $primery;
+  height: 60px;
+  line-height: 40px;
   padding: 10px;
+  padding-left: 30px;
   text-align: center;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 19px;
   position: absolute;
+
+  & span {
+    position: absolute;
+    left: 0;
+    transform: translate(25%, 6%);
+    font-size: 40px;
+  }
 }
 
 .hidden {
@@ -259,13 +267,19 @@ h1 {
   width: 350px;
 }
 
+.message-start {
+  background: rgba($color: $secondary, $alpha: .3);
+  color: $secondary;
+}
+
 .message-win {
   background: #1dae28;
   color: #f9f6f2;
 }
 
 .message-lose {
-  color: #bc452a;
+  background: #bc452a;
+  color: #f9f6f2;
 }
 
 .message-container {

@@ -1,22 +1,23 @@
-'use strict'
+"use strict";
 
 import Game from "./Game.js";
 
 const game = new Game();
 
 const element = {
-  start: document.querySelector('.start'),
-  restart: document.querySelector('.restart'),
-  messageWin: document.querySelector('.message-win'),
-  messageLose: document.querySelector('.message-lose'),
-  messageStart: document.querySelector('.message-start'),
-  cells: [...document.querySelectorAll('.field-cell')],
-  score: document.querySelector('.game-score'),
-  arrows: document.querySelector('.arrows'),
-  record: document.getElementById('record'),
-  resetRecord: document.getElementById('reset-record'),
+  start: document.querySelector(".start"),
+  restart: document.querySelector(".restart"),
+  messageWin: document.querySelector(".message-win"),
+  messageLose: document.querySelector(".message-lose"),
+  messageStart: document.querySelector(".message-start"),
+  cells: [...document.querySelectorAll(".field-cell")],
+  score: document.querySelector(".game-score"),
+  arrows: document.querySelector(".arrows"),
+  record: document.getElementById("record"),
+  resetRecord: document.getElementById("reset-record"),
 };
 
+console.log(localStorage.getItem(game.storageKey));
 
 const displayBoard = () => {
   game.state.forEach((row, rowIndex) => {
@@ -24,8 +25,8 @@ const displayBoard = () => {
 
     row.forEach((cell, cellIndex) => {
       const cellElement = element.cells[cellIndex + cellIndexCoefficient];
-      const value = cell.value !== 0 ? cell.value : '';
-      let cellClassName = 'field-cell';
+      const value = cell.value !== 0 ? cell.value : "";
+      let cellClassName = "field-cell";
 
       //!!!!!!!!!!!!
       if (cell.value !== 0) {
@@ -38,34 +39,36 @@ const displayBoard = () => {
 
       cellElement.textContent = value;
       cellElement.className = cellClassName;
-      cellElement.setAttribute('data', value / 2);
+      cellElement.setAttribute("data", value / 2);
     });
   });
 
   element.score.textContent = game.score;
 
   if (game.currentStatus === game.status.playing) {
-    element.messageStart.classList.add('hidden');
+    element.messageStart.classList.add("hidden");
   }
-  
+
   if (game.currentStatus === game.status.win) {
-    element.messageWin.classList.remove('hidden');
+    element.messageWin.classList.remove("hidden");
   }
 
   if (game.currentStatus === game.status.lose) {
-    element.messageLose.classList.remove('hidden');
+    element.messageLose.classList.remove("hidden");
   }
 
-  game.goThroughCells(game.state, (cell) => cell.merged = false);
+  game.goThroughCells(game.state, (cell) => (cell.merged = false));
 
   if (localStorage.getItem(game.storageKey) < game.score) {
     localStorage.setItem(game.storageKey, game.score);
   }
 
-  element.record.textContent = localStorage.getItem(game.storageKey);
+  element.record.textContent = localStorage.getItem(game.storageKey) === null
+    ? 0
+    : localStorage.getItem(game.storageKey);
 };
 
-displayBoard()
+displayBoard();
 
 const updateStatus = () => {
   switch (game.getStatus()) {
@@ -80,41 +83,41 @@ const updateStatus = () => {
   }
 };
 
-element.start.addEventListener('click', () => {
+element.start.addEventListener("click", () => {
   game.start();
-  element.start.classList.add('hidden');
-  element.restart.classList.remove('hidden');
+  element.start.classList.add("hidden");
+  element.restart.classList.remove("hidden");
   displayBoard();
 });
 
-element.restart.addEventListener('click', () => {
+element.restart.addEventListener("click", () => {
   game.restart();
-  element.restart.classList.add('hidden');
-  element.start.classList.remove('hidden');
-  element.start.classList.remove('hidden');
-  element.messageStart.classList.remove('hidden');
+  element.restart.classList.add("hidden");
+  element.start.classList.remove("hidden");
+  element.start.classList.remove("hidden");
+  element.messageStart.classList.remove("hidden");
 
-  document.querySelector('.message-lose').className =
-    'message message-lose hidden';
+  document.querySelector(".message-lose").className =
+    "message message-lose hidden";
 
-  element.messageWin.className = 'message message-win hidden';
+  element.messageWin.className = "message message-win hidden";
 
   displayBoard();
 });
 
-document.addEventListener('keydown', (ev) => {
-  if (game.getStatus() === 'playing') {
+document.addEventListener("keydown", (ev) => {
+  if (game.getStatus() === "playing") {
     switch (ev.key) {
-      case 'ArrowUp':
+      case "ArrowUp":
         game.moveUp();
         break;
-      case 'ArrowDown':
+      case "ArrowDown":
         game.moveDown();
         break;
-      case 'ArrowLeft':
+      case "ArrowLeft":
         game.moveLeft();
         break;
-      case 'ArrowRight':
+      case "ArrowRight":
         game.moveRight();
         break;
     }
@@ -123,24 +126,25 @@ document.addEventListener('keydown', (ev) => {
   }
 });
 
-element.arrows.addEventListener('click', (ev) => {
-  const isArrow = game.getStatus() === 'playing' &&
-    [...ev.target.classList].includes('arrow');
+element.arrows.addEventListener("click", (ev) => {
+  const isArrow =
+    game.getStatus() === "playing" &&
+    [...ev.target.classList].includes("arrow");
 
   if (isArrow) {
     const arrow = [...ev.target.classList].slice(2)[0];
 
     switch (arrow) {
-      case 'up':
+      case "up":
         game.moveUp();
         break;
-      case 'down':
+      case "down":
         game.moveDown();
         break;
-      case 'left':
+      case "left":
         game.moveLeft();
         break;
-      case 'right':
+      case "right":
         game.moveRight();
         break;
     }
@@ -149,7 +153,8 @@ element.arrows.addEventListener('click', (ev) => {
   }
 });
 
-element.resetRecord.addEventListener('click', (ev) => {
+element.resetRecord.addEventListener("click", (ev) => {
   game.resetRecord();
+  element.record.textContent = 0;
   displayBoard();
 });
