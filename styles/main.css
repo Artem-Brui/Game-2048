@@ -49,7 +49,7 @@ html {
 
 body {
   margin: 0;
-  padding-top: 1.7647058824vh;
+  padding-top: 1.5vh;
   display: flex;
   align-items: start;
   justify-content: center;
@@ -58,29 +58,29 @@ body {
   overflow: hidden;
   overflow-y: hidden;
   font-family: sans-serif;
-  font-size: 2.8235294118vh;
+  font-size: 2.4vh;
   font-weight: 900;
 }
 
 .rules {
   text-align: center;
-  font-size: 1.8823529412vh;
+  font-size: 1.6vh;
   color: #0b6ce2;
-  margin: 1.1764705882vh 0 0 0;
-  padding: 0 1.1764705882vh;
+  margin: 1vh 0 0 0;
+  padding: 0 1vh;
 }
 
 .field-cell {
   background: #0b6ce2;
-  width: 8.8235294118vh;
-  height: 8.8235294118vh;
+  width: 7.5vh;
+  height: 7.5vh;
   border-radius: 5px;
   color: white;
   box-sizing: border-box;
   text-align: center;
   vertical-align: center;
   user-select: none;
-  font-size: 3.5294117647vh;
+  font-size: 3vh;
   color: #0b6ce2;
 }
 .field-cell--2 {
@@ -119,24 +119,24 @@ body {
 
 .game-field {
   background: #86b5ce;
-  border-spacing: 1.1764705882vh;
-  border-radius: 0.5882352941vh;
+  border-spacing: 1vh;
+  border-radius: 0.5vh;
 }
 
 .game-header {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 1.1764705882vh;
+  padding: 1vh;
   box-sizing: border-box;
 }
 
 .score-record {
   width: 100%;
-  height: 8.8235294118vh;
-  border-radius: 0.5882352941vh;
-  font-size: 2.5882352941vh;
-  margin: 0 0.8235294118vh 0 0;
+  height: 7.5vh;
+  border-radius: 0.5vh;
+  font-size: 2.2vh;
+  margin: 0 0.7vh 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -149,30 +149,30 @@ body {
   margin: 0;
 }
 .score-record button {
-  font-size: 1.1764705882vh;
+  font-size: 1vh;
   font-weight: bold;
-  line-height: 1.1764705882vh;
-  letter-spacing: 0.1294117647vh;
+  line-height: 1vh;
+  letter-spacing: 0.11vh;
   color: #0b6ce2;
-  margin: 0.5882352941vh;
-  padding: 0.4705882353vh 0.8235294118vh 0.2352941176vh 0.8235294118vh;
+  margin: 0.5vh;
+  padding: 0.4vh 0.7vh 0.2vh 0.7vh;
   position: absolute;
   background-color: white;
   left: 0;
   bottom: 0;
   border: none;
-  border-radius: 0.3529411765vh;
+  border-radius: 0.3vh;
 }
 
 h1 {
   background: #0b6ce2;
   color: white;
   width: 100%;
-  height: 8.8235294118vh;
-  font-size: 4vh;
+  height: 7.5vh;
+  font-size: 3.4vh;
   font-weight: 900;
-  letter-spacing: 0.5882352941vh;
-  border-radius: 0.5882352941vh;
+  letter-spacing: 0.5vh;
+  border-radius: 0.5vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,8 +180,8 @@ h1 {
   margin: 0;
 }
 h1 span {
-  letter-spacing: 1.4117647059vh;
-  margin-left: 1.4117647059vh;
+  letter-spacing: 1.2vh;
+  margin-left: 1.2vh;
 }
 
 .info {
@@ -190,13 +190,13 @@ h1 span {
   align-items: center;
   justify-content: center;
   background: #0b6ce2;
-  width: 8.8235294118vh;
-  height: 8.8235294118vh;
-  border-radius: 0.5882352941vh;
+  width: 7.5vh;
+  height: 7.5vh;
+  border-radius: 0.5vh;
   color: white;
   box-sizing: border-box;
-  font-size: 1.8823529412vh;
-  margin: 0 0.9411764706vh 0 0;
+  font-size: 1.6vh;
+  margin: 0 0.8vh 0 0;
 }
 
 .controls {
@@ -208,8 +208,8 @@ h1 span {
   font-weight: 900;
   cursor: pointer;
   border: none;
-  border-radius: 0.5882352941vh;
-  box-shadow: inset 0.2352941176vh 0.2352941176vh 0.2352941176vh rgba(0, 0, 0, 0.2), inset -0.2352941176vh -0.2352941176vh 0.2352941176vh rgba(0, 0, 0, 0.2);
+  border-radius: 0.5vh;
+  box-shadow: inset 0.2vh 0.2vh 0.2vh rgba(0, 0, 0, 0.2), inset -0.2vh -0.2vh 0.2vh rgba(0, 0, 0, 0.2);
 }
 .button:hover {
   filter: brightness(0.9);
@@ -219,21 +219,21 @@ h1 span {
 }
 
 .control {
-  width: 8.8235294118vh;
-  height: 8.8235294118vh;
-  font-size: 1.8823529412vh;
+  width: 7.5vh;
+  height: 7.5vh;
+  font-size: 1.6vh;
   color: #f9f6f2;
   transition: 0.25s ease background;
 }
 
 .start {
   background: #1dae28;
-  font-size: 2.3529411765vh;
+  font-size: 2vh;
 }
 
 .restart {
   background: #f87474;
-  font-size: 2.1176470588vh;
+  font-size: 1.8vh;
 }
 
 .arrows {
@@ -241,40 +241,40 @@ h1 span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 41.1764705882vh;
-  gap: 0.7058823529vh;
-  margin-top: 2.3529411765vh;
+  width: 35vh;
+  gap: 0.6vh;
+  margin-top: 2vh;
 }
 .arrows-row {
   display: flex;
-  gap: 0.7058823529vh;
+  gap: 0.6vh;
 }
 
 .arrow {
   background: #0b6ce2;
   color: white;
-  width: 8.8235294118vh;
-  height: 8.8235294118vh;
-  font-size: 2.3529411765vh;
+  width: 7.5vh;
+  height: 7.5vh;
+  font-size: 2vh;
 }
 
 .message {
   box-sizing: border-box;
-  width: 41.1764705882vh;
-  height: 7.0588235294vh;
-  line-height: 4.7058823529vh;
-  padding: 1.1764705882vh;
-  padding-left: 3.5294117647vh;
+  width: 35vh;
+  height: 6vh;
+  line-height: 4vh;
+  padding: 1vh;
+  padding-left: 3vh;
   text-align: center;
-  border-radius: 0.5882352941vh;
-  font-size: 2.2352941176vh;
+  border-radius: 0.5vh;
+  font-size: 1.9vh;
   position: absolute;
 }
 .message span {
   position: absolute;
   left: 0;
   transform: translate(25%, 6%);
-  font-size: 4.7058823529vh;
+  font-size: 4vh;
 }
 
 .hidden {
@@ -285,7 +285,7 @@ h1 span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 41.1764705882vh;
+  width: 35vh;
 }
 
 .message-start {
@@ -313,8 +313,8 @@ h1 span {
 }
 .merged::before {
   content: "";
-  width: 11.7647058824vh;
-  height: 11.7647058824vh;
+  width: 10vh;
+  height: 10vh;
   position: absolute;
   top: -18%;
   left: -18%;
