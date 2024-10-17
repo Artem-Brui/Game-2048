@@ -14,14 +14,14 @@
   0% {
     font-size: .1rem;
     color: transparent;
-    background-color: rgb(19, 182, 27);
+    background-color: $secondary;
   }
 
   100% {
     color: transparent;
     font-size: 3rem;
     transform: rotateY(-2turn);
-    background-color: rgb(19, 182, 27);
+    background-color: $secondary;
   }
 }
 

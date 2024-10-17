@@ -4,14 +4,14 @@ export default class Game {
       [
         { value: 0, merged: false },
         { value: 0, merged: false },
-        { value: 8, merged: false },
+        { value: 0, merged: false },
         { value: 0, merged: false },
       ],
       [
         { value: 0, merged: false },
         { value: 0, merged: false },
         { value: 0, merged: false },
-        { value: 4, merged: false },
+        { value: 0, merged: false },
       ],
       [
         { value: 0, merged: false },
@@ -26,18 +26,32 @@ export default class Game {
         { value: 0, merged: false },
       ],
     ]
-    // initialState = [
-    //   [0, 0, 0, 0],
-    //   [0, 0, 0, 0],
-    //   [0, 0, 0, 0],
-    //   [0, 0, 0, 0],
-    // ],
-    // initialState = [
-    //   [2, 4, 8, 16],
-    //   [32, 64, 128, 256],
-    //   [512, 1024, 2048, 0],
-    //   [0, 0, 0, 0],
-    // ],
+    // initialState =[
+    //   [
+    //     { value: 2, merged: false },
+    //     { value: 4, merged: false },
+    //     { value: 8, merged: false },
+    //     { value: 16, merged: false },
+    //   ],
+    //   [
+    //     { value: 32, merged: false },
+    //     { value: 64, merged: false },
+    //     { value: 128, merged: false },
+    //     { value: 256, merged: false },
+    //   ],
+    //   [
+    //     { value: 512, merged: false },
+    //     { value: 1024, merged: false },
+    //     { value: 1024, merged: false },
+    //     { value: 0, merged: false },
+    //   ],
+    //   [
+    //     { value: 0, merged: false },
+    //     { value: 0, merged: false },
+    //     { value: 0, merged: false },
+    //     { value: 0, merged: false },
+    //   ],
+    // ]
   ) {
     this.directions = {
       right: "right",
@@ -62,6 +76,9 @@ export default class Game {
     this.currentStatus = this.status.idle;
     this.lastRandomZeroIndex = 0;
     this.score = 0;
+    this.storageKey = 'game2048score';
+
+    // localStorage.setItem(this.storageKey, 0)
 
     this.goThroughCells = (board, callback) =>
       board.map((row) =>
@@ -324,6 +341,11 @@ export default class Game {
   restart() {
     this.currentStatus = "idle";
     this.state = this.initialState;
+
+    if (localStorage.getItem(this.storageKey) < this.score) {
+      localStorage.setItem(this.storageKey, this.score);
+    }
+
     this.score = 0;
   }
 }

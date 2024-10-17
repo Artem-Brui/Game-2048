@@ -12,6 +12,7 @@ const element = {
   messageStart: document.querySelector('.message-start'),
   cells: [...document.querySelectorAll('.field-cell')],
   score: document.querySelector('.game-score'),
+  record: document.getElementById('record')
 };
 
 
@@ -44,6 +45,8 @@ const displayBoard = () => {
   if (game.currentStatus === game.status.playing) {
     element.messageStart.classList.add('hidden');
   }
+  console.log(game.currentStatus);
+  
 
   if (game.currentStatus === game.status.win) {
     element.messageWin.classList.remove('hidden');
@@ -54,6 +57,12 @@ const displayBoard = () => {
   }
 
   game.goThroughCells(game.state, (cell) => cell.merged = false);
+
+  if (localStorage.getItem(game.storageKey) < game.score) {
+    localStorage.setItem(game.storageKey, game.score);
+  }
+
+  element.record.textContent = localStorage.getItem(game.storageKey);
 };
 
 displayBoard()
