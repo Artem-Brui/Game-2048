@@ -84,37 +84,37 @@ body {
   color: #0b6ce2;
 }
 .field-cell--2 {
-  background: #e0be9b;
+  background: #f5f6dd;
 }
 .field-cell--4 {
-  background: #dbb773;
+  background: #d0d19e;
 }
 .field-cell--8 {
-  background: #d7a970;
+  background: #e0e33b;
 }
 .field-cell--16 {
-  background: #f59563;
+  background: #d1d406;
 }
 .field-cell--32 {
-  background: #f67c5f;
+  background: #c8ca51;
 }
 .field-cell--64 {
-  background: #f65e3b;
+  background: #ccb255;
 }
 .field-cell--128 {
-  background: #edcf72;
+  background: #67b867;
 }
 .field-cell--256 {
-  background: #edcc61;
+  background: #40b540;
 }
 .field-cell--512 {
-  background: #edc850;
+  background: #29c729;
 }
 .field-cell--1024 {
-  background: #edc53f;
+  background: #12de12;
 }
 .field-cell--2048 {
-  background: #edc22e;
+  background: #03f903;
 }
 
 .game-field {
@@ -143,9 +143,25 @@ body {
   justify-content: center;
   background-color: #0b6ce2;
   color: white;
+  position: relative;
 }
 .score-record p {
   margin: 0;
+}
+.score-record button {
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 10px;
+  letter-spacing: 1.1px;
+  color: #0b6ce2;
+  margin: 5px;
+  padding: 3px 7px;
+  position: absolute;
+  background-color: white;
+  left: 0;
+  bottom: 0;
+  border: none;
+  border-radius: 3px;
 }
 
 h1 {
@@ -188,21 +204,24 @@ h1 span {
 }
 
 .button {
-  width: 75px;
-  height: 75px;
-  font-size: 16px;
   font-family: sans-serif;
-  font-weight: 700;
+  font-weight: 900;
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.7);
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2), inset -2px -2px 2px rgba(0, 0, 0, 0.2);
+}
+.button:hover {
+  filter: brightness(0.9);
 }
 .button:active {
   scale: 0.9;
 }
 
 .control {
+  width: 75px;
+  height: 75px;
+  font-size: 16px;
   color: #f9f6f2;
   transition: 0.25s ease background;
 }
@@ -211,15 +230,10 @@ h1 span {
   background: #1dae28;
   font-size: 20px;
 }
-.start:hover {
-  background: #179921;
-}
 
 .restart {
-  background: #f1b2b2;
-}
-.restart:hover {
   background: #f87474;
+  font-size: 18px;
 }
 
 .arrows {
@@ -239,6 +253,8 @@ h1 span {
 .arrow {
   background: #0b6ce2;
   color: white;
+  width: 75px;
+  height: 75px;
   font-size: 20px;
 }
 

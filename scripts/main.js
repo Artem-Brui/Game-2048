@@ -12,7 +12,9 @@ const element = {
   messageStart: document.querySelector('.message-start'),
   cells: [...document.querySelectorAll('.field-cell')],
   score: document.querySelector('.game-score'),
-  record: document.getElementById('record')
+  arrows: document.querySelector('.arrows'),
+  record: document.getElementById('record'),
+  resetRecord: document.getElementById('reset-record'),
 };
 
 
@@ -45,9 +47,7 @@ const displayBoard = () => {
   if (game.currentStatus === game.status.playing) {
     element.messageStart.classList.add('hidden');
   }
-  console.log(game.currentStatus);
   
-
   if (game.currentStatus === game.status.win) {
     element.messageWin.classList.remove('hidden');
   }
@@ -123,8 +123,11 @@ document.addEventListener('keydown', (ev) => {
   }
 });
 
-document.addEventListener('click', (ev) => {
-  if (game.getStatus() === 'playing') {
+element.arrows.addEventListener('click', (ev) => {
+  const isArrow = game.getStatus() === 'playing' &&
+    [...ev.target.classList].includes('arrow');
+
+  if (isArrow) {
     const arrow = [...ev.target.classList].slice(2)[0];
 
     switch (arrow) {
@@ -144,4 +147,9 @@ document.addEventListener('click', (ev) => {
     updateStatus();
     displayBoard();
   }
+});
+
+element.resetRecord.addEventListener('click', (ev) => {
+  game.resetRecord();
+  displayBoard();
 });

@@ -78,8 +78,6 @@ export default class Game {
     this.score = 0;
     this.storageKey = 'game2048score';
 
-    // localStorage.setItem(this.storageKey, 0)
-
     this.goThroughCells = (board, callback) =>
       board.map((row) =>
         row.map((n) => {
@@ -347,5 +345,9 @@ export default class Game {
     }
 
     this.score = 0;
+  }
+
+  resetRecord() {
+    localStorage.setItem(this.storageKey, 0)
   }
 }
