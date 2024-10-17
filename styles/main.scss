@@ -7,7 +7,7 @@ html {
 
 body {
   margin: 0;
-  padding-top: 15px;
+  padding-top: $dpx * 15;
   display: flex;
   align-items: start;
   justify-content: center;
@@ -16,30 +16,30 @@ body {
   overflow: hidden;
   overflow-y: hidden;
   font-family: sans-serif;
-  font-size: 24px;
+  font-size: $dpx * 24;
   font-weight: 900;
 }
 
 .rules {
   text-align: center;
-  font-size: 16px;
+  font-size: $dpx * 16;
   color: $secondary;
-  margin: 10px 0 0 0;
-  padding: 0 10px;
+  margin: $dpx * 10 0 0 0;
+  padding: 0 $dpx * 10;
 
 }
 
 .field-cell {
   background: $secondary;
-  width: 75px;
-  height: 75px;
+  width: $dpx * 75;
+  height: $dpx * 75;
   border-radius: 5px;
   color: $primery;
   box-sizing: border-box;
   text-align: center;
   vertical-align: center;
   user-select: none;
-  font-size: 30px;
+  font-size: $dpx * 30;
   color: $secondary;
 
   &--2 {
@@ -89,24 +89,24 @@ body {
 
 .game-field {
   background: #86b5ce;
-  border-spacing: 10px;
-  border-radius: 5px;
+  border-spacing: $dpx * 10;
+  border-radius: $dpx * 5;
 }
 
 .game-header {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 10px;
+  padding: $dpx * 10;
   box-sizing: border-box;
 }
 
 .score-record {
   width: 100%;
-  height: 75px;
-  border-radius: 5px;
-  font-size: 22px;
-  margin: 0 7px 0 0;
+  height: $dpx * 75;
+  border-radius: $dpx * 5;
+  font-size: $dpx * 22;
+  margin: 0 $dpx * 7 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,19 +120,19 @@ body {
   }
 
   & button {
-    font-size: 10px;
+    font-size: $dpx * 10;
     font-weight: bold;
-    line-height: 10px;
-    letter-spacing: 1.1px;
+    line-height: $dpx * 10;
+    letter-spacing: $dpx * 1.1;
     color: $secondary;
-    margin: 5px;
-    padding: 3px 7px;
+    margin: $dpx * 5;
+    padding: $dpx * 4 $dpx * 7 $dpx * 2 $dpx * 7;
     position: absolute;
     background-color: white;
     left: 0;
     bottom: 0;
     border: none;
-    border-radius: 3px;
+    border-radius: $dpx * 3;
   }
 
 }
@@ -141,11 +141,11 @@ h1 {
   background: $secondary;
   color: $primery;
   width: 100%;
-  height: 75px;
-  font-size: 34px;
+  height: $dpx * 75;
+  font-size: $dpx * 34;
   font-weight: 900;
-  letter-spacing: 5px;
-  border-radius: 5px;
+  letter-spacing: $dpx * 5;
+  border-radius: $dpx * 5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,8 +153,8 @@ h1 {
   margin: 0;
   
   & span {
-    letter-spacing: 12px;
-    margin-left: 12px;
+    letter-spacing: $dpx * 12;
+    margin-left: $dpx * 12;
   }
 }
 
@@ -164,13 +164,13 @@ h1 {
   align-items: center;
   justify-content: center;
   background: $secondary;
-  width: 75px;
-  height: 75px;
-  border-radius: 5px;
+  width: $dpx * 75;
+  height: $dpx * 75;
+  border-radius: $dpx * 5;
   color: $primery;
   box-sizing: border-box;
-  font-size: 16px;
-  margin: 0 8px 0 0;
+  font-size: $dpx * 16;
+  margin: 0 $dpx * 8 0 0;
 }
 
 .controls {
@@ -182,9 +182,9 @@ h1 {
   font-weight: 900;
   cursor: pointer;
   border: none;
-  border-radius: 5px;
-  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2),
-              inset -2px -2px 2px rgba(0, 0, 0, 0.2);
+  border-radius: $dpx * 5;
+  box-shadow: inset $dpx * 2 $dpx * 2 $dpx * 2 rgba(0, 0, 0, 0.2),
+              inset $dpx * -2 $dpx * -2 $dpx * 2 rgba(0, 0, 0, 0.2);
 
   &:hover {
     filter: brightness(.9);
@@ -196,21 +196,21 @@ h1 {
 }
 
 .control {
-  width: 75px;
-  height: 75px;
-  font-size: 16px;
+  width: $dpx * 75;
+  height: $dpx * 75;
+  font-size: $dpx * 16;
   color: #f9f6f2;
   transition: 0.25s ease background;
 }
 
 .start {
   background: #1dae28;
-  font-size: 20px;
+  font-size: $dpx * 20;
 }
 
 .restart {
   background: #f87474;
-  font-size: 18px;
+  font-size: $dpx * 18;
 }
 
 .arrows {
@@ -218,41 +218,41 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 350px;
-  gap: 6px;
-  margin-top: 20px;
+  width: $dpx * 350;
+  gap: $dpx * 6;
+  margin-top: $dpx * 20;
 
   &-row {
     display: flex;
-    gap: 6px;
+    gap: $dpx * 6;
   }
 }
 
 .arrow {
   background: $secondary; 
   color: $primery;
-  width: 75px;
-  height: 75px;
-  font-size: 20px;
+  width: $dpx * 75;
+  height: $dpx * 75;
+  font-size: $dpx * 20;
 }
 
 .message {
   box-sizing: border-box;
-  width: 350px;
-  height: 60px;
-  line-height: 40px;
-  padding: 10px;
-  padding-left: 30px;
+  width: $dpx * 350;
+  height: $dpx * 60;
+  line-height: $dpx * 40;
+  padding: $dpx * 10;
+  padding-left: $dpx * 30;
   text-align: center;
-  border-radius: 5px;
-  font-size: 19px;
+  border-radius: $dpx * 5;
+  font-size: $dpx * 19;
   position: absolute;
 
   & span {
     position: absolute;
     left: 0;
     transform: translate(25%, 6%);
-    font-size: 40px;
+    font-size: $dpx * 40;
   }
 }
 
@@ -264,7 +264,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 350px;
+  width: $dpx * 350;
 }
 
 .message-start {
@@ -292,8 +292,8 @@ h1 {
 
   &::before {
     content: '';
-    width: 100px;
-    height: 100px;
+    width: $dpx * 100;
+    height: $dpx * 100;
     position: absolute;
     top: -18%;
     left: -18%;
