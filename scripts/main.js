@@ -81,6 +81,15 @@ const updateStatus = () => {
   }
 };
 
+document.querySelectorAll('.button').forEach(element => {
+  element.addEventListener('touchstart', function() {
+    this.classList.add('active');
+  });
+  element.addEventListener('touchend', function() {
+    this.classList.remove('active');
+  });
+});
+
 element.start.addEventListener("click", () => {
   game.start();
   element.start.classList.add("hidden");

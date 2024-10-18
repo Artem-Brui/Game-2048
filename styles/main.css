@@ -21,7 +21,6 @@
 }
 html {
   overflow: hidden;
-  touch-action: manipulation;
 }
 
 body {
@@ -195,6 +194,9 @@ h1 span {
   filter: brightness(0.9);
 }
 .button:active {
+  scale: 0.9;
+}
+.button.active {
   scale: 0.9;
 }
 

@@ -3,7 +3,6 @@
 
 html {
   overflow: hidden;
-  touch-action: manipulation;
 }
 
 body {
@@ -135,8 +134,6 @@ body {
   border-radius: $dpx * 3;
 }
 
-
-
 h1 {
   background: $secondary;
   color: $primery;
@@ -195,6 +192,10 @@ h1 {
   }
 
   &:active {
+    scale: .9;
+  }
+
+  &.active {
     scale: .9;
   }
 }
