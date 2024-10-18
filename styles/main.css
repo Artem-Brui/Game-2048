@@ -19,14 +19,6 @@
     background-color: #0b6ce2;
   }
 }
-@keyframes background-round {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
 html {
   overflow: hidden;
 }

@@ -12,25 +12,13 @@
 
 @keyframes cell {
   0% {
-    // font-size: .1rem;
     color: transparent;
     background-color: $secondary;
   }
 
   100% {
     color: transparent;
-    // font-size: 3rem;
     transform: rotateY(-2turn);
     background-color: $secondary;
-  }
-}
-
-@keyframes background-round {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
