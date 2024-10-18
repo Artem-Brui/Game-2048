@@ -12,14 +12,14 @@
 
 @keyframes cell {
   0% {
-    font-size: .1rem;
+    // font-size: .1rem;
     color: transparent;
     background-color: $secondary;
   }
 
   100% {
     color: transparent;
-    font-size: 3rem;
+    // font-size: 3rem;
     transform: rotateY(-2turn);
     background-color: $secondary;
   }
