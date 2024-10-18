@@ -1,21 +1,4 @@
-/* Линейка синих оттенков */
-
-$lightest-blue: #e0f7ff; /* Очень светлый голубой */
-$light-blue: #add8e6; /* Светло-голубой */
-$sky-blue: #87ceeb; /* Небесно-голубой */
-$baby-blue: #89cfff; /* Нежно-голубой */
-$blue: #0000ff; /* Синий */
-$dodger-blue: #1e90ff; /* Яркий синий (Dodger Blue) */
-$cornflower-blue: #6495ed; /* Васильковый */
-$royal-blue: #4169e1; /* Королевский синий */
-$medium-blue: #0b6ce2; /* Средне-синий */
-$dark-blue: #00008b; /* Темно-синий */
-$navy-blue: #000080; /* Флотский синий */
-$midnight-blue: #191970; /* Полуночный синий */
-
-$primery: $dodger-blue;
 $primery: white;
-$secondary: $sky-blue;
-$secondary: $medium-blue;
+$secondary: #0b6ce2;
 
 $dpx: 100vh / 1000;

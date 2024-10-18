@@ -1,11 +1,11 @@
 @keyframes back {
   0% {
     transform: rotateZ(0);
-    background-size: 90%;
+    background-size: 60%;
   }
 
   100% {
-    background-size: 90%;
+    background-size: 60%;
     transform: rotateZ(-2turn);
   }
 }

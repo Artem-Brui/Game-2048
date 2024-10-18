@@ -1,24 +1,10 @@
-@charset "UTF-8";
-/* Линейка синих оттенков */
-/* Очень светлый голубой */
-/* Светло-голубой */
-/* Небесно-голубой */
-/* Нежно-голубой */
-/* Синий */
-/* Яркий синий (Dodger Blue) */
-/* Васильковый */
-/* Королевский синий */
-/* Средне-синий */
-/* Темно-синий */
-/* Флотский синий */
-/* Полуночный синий */
 @keyframes back {
   0% {
     transform: rotateZ(0);
-    background-size: 90%;
+    background-size: 60%;
   }
   100% {
-    background-size: 90%;
+    background-size: 60%;
     transform: rotateZ(-2turn);
   }
 }
@@ -82,6 +68,7 @@ body {
   user-select: none;
   font-size: 3vh;
   color: #0b6ce2;
+  overflow: hidden;
 }
 .field-cell--2 {
   background: #f5f6dd;

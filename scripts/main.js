@@ -17,8 +17,6 @@ const element = {
   resetRecord: document.getElementById("reset-record"),
 };
 
-console.log(localStorage.getItem(game.storageKey));
-
 const displayBoard = () => {
   game.state.forEach((row, rowIndex) => {
     const cellIndexCoefficient = rowIndex * 4;
