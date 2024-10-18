@@ -21,6 +21,7 @@
 }
 html {
   overflow: hidden;
+  touch-action: manipulation;
 }
 
 body {
