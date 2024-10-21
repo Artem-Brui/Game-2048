@@ -1,0 +1,29 @@
+.message-container {
+  width: 100%;
+}
+
+.message {
+  box-sizing: border-box;
+  width: $dpx * 350;
+  height: $dpx * 60;
+  line-height: $dpx * 40;
+  padding: $dpx * 10;
+  text-align: center;
+  border-radius: $dpx * 5;
+  font-size: $dpx * 19;
+}
+
+.message-start {
+  background: rgba($color: $secondary, $alpha: .3);
+  color: $secondary;
+}
+
+.message-win {
+  background: #1dae28;
+  color: #f9f6f2;
+}
+
+.message-lose {
+  background: #bc452a;
+  color: #f9f6f2;
+}

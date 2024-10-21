@@ -1,0 +1,96 @@
+.game-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: $dpx * 10;
+  box-sizing: border-box;
+}
+
+.rules {
+  font-size: $dpx * 16;
+  text-align: center;
+  color: $secondary;
+  margin: 0;
+  margin: $dpx * 10 0 0 0;
+  padding: 0 $dpx * 10;
+  text-transform: uppercase;
+
+  &:first-of-type {
+    margin-top: $dpx * 14;
+  }
+
+  &:nth-of-type(3) span {
+    font-size: $dpx * 19;
+    letter-spacing: $dpx * 2;
+    color: $green;
+  }
+}
+
+h1 {
+  background: $secondary;
+  color: $primery;
+  width: 100%;
+  height: $dpx * 75;
+  font-size: $dpx * 34;
+  font-weight: 900;
+  letter-spacing: $dpx * 5;
+  border-radius: $dpx * 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  
+  & span {
+    letter-spacing: $dpx * 12;
+    margin-left: $dpx * 12;
+    color: $green;
+  }
+}
+
+.score-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: $secondary;
+  width: $dpx * 75;
+  height: $dpx * 75;
+  border-radius: $dpx * 5;
+  color: $primery;
+  box-sizing: border-box;
+  font-size: $dpx * 16;
+  margin: 0 $dpx * 8 0 0;
+}
+
+.score-record {
+  width: 100%;
+  height: $dpx * 75;
+  border-radius: $dpx * 5;
+  font-size: $dpx * 18;
+  margin: 0 $dpx * 7 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $secondary;
+  color: $primery;
+
+  & p {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+#reset-record {
+  font-size: $dpx * 12;
+  font-weight: bold;
+  letter-spacing: $dpx * 1.1;
+  color: $secondary;
+  padding: $dpx * 4 $dpx * 7 $dpx * 3 $dpx * 7;
+  background-color: white;
+  left: 0;
+  bottom: 0;
+  border: none;
+  border-radius: $dpx * 3;
+}

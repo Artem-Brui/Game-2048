@@ -1,0 +1,84 @@
+.game-field {
+  background: #86b5ce;
+  border-spacing: $dpx * 10;
+  border-radius: $dpx * 5;
+}
+
+.field-cell {
+  background: $secondary;
+  width: $dpx * 75;
+  height: $dpx * 75;
+  border-radius: 5px;
+  color: $primery;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: center;
+  user-select: none;
+  font-size: $dpx * 30;
+  color: $secondary;
+  overflow: hidden;
+
+  &--2 {
+    background: #f5f6dd;
+  }
+
+  &--4 {
+    background: #d0d19e;
+  }
+
+  &--8 {
+    background: #e0e33b;
+  }
+
+  &--16 {
+    background: #d1d406;
+  }
+
+  &--32 {
+    background: #c8ca51;
+  }
+
+  &--64 {
+    background: #ccb255;
+  }
+
+  &--128 {
+    background: #67b867;
+  }
+
+  &--256 {
+    background: #40b540;
+  }
+
+  &--512 {
+    background: #29c729;
+  }
+
+  &--1024 {
+    background: #12de12;
+  }
+
+  &--2048 {
+    background: #03f903;
+  }
+}
+
+.merged {
+  position: relative;
+  animation: cell 1s;
+
+  &::before {
+    content: '';
+    width: $dpx * 100;
+    height: $dpx * 100;
+    position: absolute;
+    top: -18%;
+    left: -18%;
+    z-index: 2;
+    background-image: url('../images/star.png');
+    background-repeat: no-repeat;
+    background-size: 0%;
+    background-position: center;
+    animation: star-round 1s;
+  }
+}

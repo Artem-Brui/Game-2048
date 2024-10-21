@@ -1,0 +1,69 @@
+.controls {
+  display: flex;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-weight: 900;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: $dpx * 5;
+  box-shadow: inset $dpx * 2 $dpx * 2 $dpx * 2 rgba(0, 0, 0, 0.2),
+              inset $dpx * -2 $dpx * -2 $dpx * 2 rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    filter: brightness(.9);
+  }
+
+  &:active {
+    scale: .9;
+  }
+
+  &.active {
+    scale: .9;
+  }
+}
+
+.control {
+  width: $dpx * 75;
+  height: $dpx * 75;
+  font-size: $dpx * 16;
+  color: #f9f6f2;
+}
+
+.start {
+  background: $green;
+  font-size: $dpx * 20;
+}
+
+.restart {
+  background: #f87474;
+  font-size: $dpx * 18;
+}
+
+.arrows {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: $dpx * 350;
+  gap: $dpx * 6;
+  margin-top: $dpx * 20;
+
+  &-row {
+    display: flex;
+    gap: $dpx * 6;
+  }
+}
+
+.arrow {
+  background: $secondary; 
+  color: $primery;
+  width: $dpx * 75;
+  height: $dpx * 75;
+  font-size: $dpx * 20;
+}

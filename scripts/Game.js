@@ -26,32 +26,6 @@ export default class Game {
         { value: 0, merged: false },
       ],
     ]
-    // initialState =[
-    //   [
-    //     { value: 2, merged: false },
-    //     { value: 4, merged: false },
-    //     { value: 8, merged: false },
-    //     { value: 16, merged: false },
-    //   ],
-    //   [
-    //     { value: 32, merged: false },
-    //     { value: 64, merged: false },
-    //     { value: 128, merged: false },
-    //     { value: 256, merged: false },
-    //   ],
-    //   [
-    //     { value: 512, merged: false },
-    //     { value: 1024, merged: false },
-    //     { value: 1024, merged: false },
-    //     { value: 0, merged: false },
-    //   ],
-    //   [
-    //     { value: 0, merged: false },
-    //     { value: 0, merged: false },
-    //     { value: 0, merged: false },
-    //     { value: 0, merged: false },
-    //   ],
-    // ]
   ) {
     this.directions = {
       right: "right",
