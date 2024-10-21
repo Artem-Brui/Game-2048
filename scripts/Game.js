@@ -50,7 +50,7 @@ export default class Game {
     this.currentStatus = this.status.idle;
     this.lastRandomZeroIndex = 0;
     this.score = 0;
-    this.storageKey = 'game2048score';
+    this.storageKey = "game2048score";
 
     this.goThroughCells = (board, callback) =>
       board.map((row) =>
@@ -104,7 +104,9 @@ export default class Game {
               indexCounter++;
             }
 
-            return randomIndex === indexCounter && n.value === 0 ? numberToAdd : n.value;
+            return randomIndex === indexCounter && n.value === 0
+              ? numberToAdd
+              : n.value;
           });
 
           return updatedBoard;
@@ -131,7 +133,9 @@ export default class Game {
         direction === this.directions.right ||
         direction === this.directions.down;
 
-      const arrayToMove = isVertical ? turnDirection(this.state) : this.state;
+      const arrayToMove = isVertical
+        ? turnDirection(this.copyBoard(this.state))
+        : this.copyBoard(this.state);
 
       const movedArray = arrayToMove.map((row) => {
         const values = isRightDownDirection
@@ -146,7 +150,6 @@ export default class Game {
           ) {
             values[i + 1].value = 0;
             values[i].value *= 2;
-            // attention!!!!!
             values[i].merged = true;
 
             this.score += values[i].value;
@@ -322,6 +325,6 @@ export default class Game {
   }
 
   resetRecord() {
-    localStorage.setItem(this.storageKey, 0)
+    localStorage.setItem(this.storageKey, 0);
   }
 }
