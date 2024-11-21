@@ -1,96 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2048</title>
-    <link
-      rel="shortcut icon"
-      href="./icons/favicon.png"
-      type="image/x-icon">
-    <link
-      rel="stylesheet"
-      href="./styles/main.css"
-    />
-</head>
-<body>
-  <div class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="2048 Game">
+    <meta property="og:image" content="https://artem-brui.github.io/Game-2048/images/2048-preview.webp">
+    <meta property="og:url" content="https://artem-brui.github.io/Game-2048/">
+    <meta property="og:type" content="website">
+    <link rel="shortcut icon" href="./icons/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        GAME -
+        <span>2048</span>
+      </h1>
 
-    <h1>GAME -
-      <span>2048</span>
-    </h1>
-
-    <p class="rules">Use buttons or keyboard,</p>
-    <p class="rules">merge the tiles,</p>
-    <p class="rules">Get to <span>2048</span>!</p>
-    <div class="game-header">
-      <div class="score-record">
-        <div>
-          <p>Best Score:</p>
-          <p id="record">0</p>
+      <p class="rules">Use buttons or keyboard,</p>
+      <p class="rules">merge the tiles,</p>
+      <p class="rules">Get to <span>2048</span>!</p>
+      <div class="game-header">
+        <div class="score-record">
+          <div>
+            <p>Best Score:</p>
+            <p id="record">0</p>
+          </div>
+          <a class="button" id="reset-record">RESET</a>
         </div>
-        <a class="button" id="reset-record">RESET</a>
+        <div class="controls">
+          <p class="score-counter">
+            Score:
+            <span class="game-score">0</span>
+          </p>
+          <a class="button control start">Start</a>
+          <a class="button control restart hidden">Restart</a>
+        </div>
       </div>
-      <div class="controls">
-        <p class="score-counter">
-          Score:
-          <span class="game-score">0</span>
-        </p>
-        <a class="button control start">Start</a>
-        <a class="button control restart hidden">Restart</a>
+      <table class="game-field">
+        <tbody>
+          <tr class="field-row">
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+          </tr>
+
+          <tr class="field-row">
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+          </tr>
+
+          <tr class="field-row">
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+          </tr>
+
+          <tr class="field-row">
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+            <td class="field-cell"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="arrows">
+        <div class="arrows-row">
+          <a class="button arrow up">Up</a>
+        </div>
+        <div class="arrows-row">
+          <a class="button arrow left">Left</a>
+          <a class="button arrow down">Down</a>
+          <a class="button arrow right">Right</a>
+        </div>
+      </div>
+      <div class="message-container">
+        <p class="message message-lose hidden">You lose! Restart the game?</p>
+        <p class="message message-win hidden">Winner! Congrats! You did it!</p>
+        <p class="message message-start">Press "Start" to begin game!</p>
       </div>
     </div>
-    <table class="game-field">
-      <tbody>
-        <tr class="field-row">
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-        </tr>
 
-        <tr class="field-row">
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-        </tr>
-
-        <tr class="field-row">
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-        </tr>
-
-        <tr class="field-row">
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-          <td class="field-cell"></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="arrows">
-      <div class="arrows-row">
-        <a class="button arrow up">Up</a>
-      </div>
-      <div class="arrows-row">
-        <a class="button arrow left">Left</a>
-        <a class="button arrow down">Down</a>
-        <a class="button arrow right">Right</a>
-      </div>
-    </div>
-    <div class="message-container">
-      <p class="message message-lose hidden">You lose! Restart the game?</p>
-      <p class="message message-win hidden">Winner! Congrats! You did it!</p>
-      <p class="message message-start">Press "Start" to begin game!</p>
-    </div>
-  </div>
-  
-  <script
-    type="module"
-    src="scripts/main.js"
-  ></script>
-</body>
+    <script type="module" src="scripts/main.js"></script>
+  </body>
 </html>
